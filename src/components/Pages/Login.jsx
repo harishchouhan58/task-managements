@@ -23,7 +23,7 @@ const Login = () => {
 
         try {
             const data = await fetch(
-              `${import.meta.env.VITE_API_URL}/auth/user/login`,
+              `${import.meta.env.VITE_API_URL}auth/user/login`,
               {
                 method: "POST",
                 headers: {
