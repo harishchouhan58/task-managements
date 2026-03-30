@@ -23,11 +23,22 @@ const Register = () => {
         setMessage(null);
 
         try {
-            const data = await fetch('http://localhost:3000/auth/user/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(inputs)
-            });
+            const data = await fetch(
+              `${import.meta.env.VITE_API_URL}/auth/user/register`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(inputs),
+                credentials: "include" // IMPORTANT for cookies
+              }
+            );
+            // const data = await fetch('http://localhost:3000/auth/user/register', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(inputs)
+            // });
 
             const res = await data.json();
 
